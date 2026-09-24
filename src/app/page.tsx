@@ -120,7 +120,6 @@ export default function Home() {
             </div>
           </div>
           <span className="portrait-corner corner-bottom" />
-          <span className="portrait-coordinate">{profile.coordinates}</span>
         </div>
       </section>
       <div className="container focus-strip">

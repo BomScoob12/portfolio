@@ -460,14 +460,6 @@ svg {
   padding: 4px 10px;
   border-radius: 6px;
 }
-.portrait-coordinate {
-  position: absolute;
-  right: 0;
-  bottom: -34px;
-  font-size: 8px;
-  letter-spacing: 1.5px;
-  color: #8b9bb1;
-}
 .real-portrait {
   object-fit: cover;
 }
