@@ -4,7 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Arrow } from "./icons";
-import { profile } from "@/data/portfolio";
+import profile from "@/data/profile.json";
+import site from "@/data/site.json";
 
 export function Navigation() {
   const pathname = usePathname();
@@ -12,15 +13,22 @@ export function Navigation() {
   return (
     <header className="site-header">
       <div className="container nav-inner">
-        <Link
-          href="/"
-          className="wordmark"
-          aria-label="Bom home"
-          onClick={() => setOpen(false)}
-        >
-          bom<span>.</span>
-          <span className="wordmark-slash">/</span>
-        </Link>
+        <div className="brand-group">
+          <Link
+            href="/"
+            className="wordmark"
+            aria-label={`${profile.nickname} home`}
+            onClick={() => setOpen(false)}
+          >
+            {profile.nickname.toLowerCase()}
+            <span>.</span>
+            <span className="wordmark-slash">/</span>
+          </Link>
+          <span className="beta-badge" title={site.release.description}>
+            {site.release.label}
+            <span className="sr-only"> — {site.release.description}</span>
+          </span>
+        </div>
         <button
           className="menu-toggle"
           aria-expanded={open}
@@ -35,11 +43,7 @@ export function Navigation() {
           className={open ? "navigation is-open" : "navigation"}
           aria-label="Main navigation"
         >
-          {[
-            { href: "/", label: "Home" },
-            { href: "/projects", label: "Projects" },
-            { href: "/experiences", label: "Experiences" },
-          ].map((link) => (
+          {site.navigation.links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -58,7 +62,7 @@ export function Navigation() {
             rel="noreferrer"
             className="nav-contact"
           >
-            Let’s connect <Arrow diagonal />
+            {site.navigation.contact} <Arrow diagonal />
             <span className="sr-only"> on LinkedIn (opens in a new tab)</span>
           </a>
         </nav>

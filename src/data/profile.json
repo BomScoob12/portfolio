@@ -1,0 +1,17 @@
+{
+  "name": "Sarawit Kraukham",
+  "nickname": "Bom",
+  "role": "Software Engineer",
+  "location": "Bangkok, Thailand",
+  "linkedin": "https://www.linkedin.com/in/sarawit-kraukham/",
+  "portrait": null,
+  "summary": "From banking APIs to real-time web experiences, I turn practical problems into working software. My experience spans backend development, internal tools, and helping others take their first steps in code.",
+  "statement": ["Thoughtful code.", "Useful experiences."],
+  "coordinates": "13.7563° N · 100.5018° E",
+  "focusAreas": [
+    "Backend & APIs",
+    "Web Development",
+    "Creative Coding",
+    "Knowledge Sharing"
+  ]
+}

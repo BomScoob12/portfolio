@@ -129,6 +129,21 @@ svg {
   align-items: center;
   justify-content: space-between;
 }
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.beta-badge {
+  color: var(--blue);
+  background: #15243b;
+  border: 1px solid #365178;
+  border-radius: 4px;
+  padding: 3px 7px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 .wordmark {
   font-family: var(--display);
   font-size: 31px;

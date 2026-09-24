@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import profile from "@/data/profile.json";
+import site from "@/data/site.json";
 import "./globals.css";
 
 const manrope = localFont({
@@ -17,17 +19,20 @@ const dmSans = localFont({
 
 export const metadata: Metadata = {
   // Set SITE_URL to the confirmed public domain when deploying.
-  metadataBase: new URL(process.env.SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(
+    process.env.SITE_URL ??
+      (process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+        : "http://localhost:3000"),
+  ),
   title: {
-    default: "Sarawit Kraukham — Software Engineer",
-    template: "%s | Sarawit Kraukham",
+    default: `${profile.name} — ${profile.role}`,
+    template: `%s | ${profile.name}`,
   },
-  description:
-    "Meet Sarawit (Bom) Kraukham, a software engineer in Bangkok working on backend APIs, internal tools, and real-time web experiences.",
+  description: site.seo.description,
   openGraph: {
-    title: "Sarawit Kraukham — Software Engineer",
-    description:
-      "Backend APIs, thoughtful web experiences, and the work behind them.",
+    title: `${profile.name} — ${profile.role}`,
+    description: site.seo.socialDescription,
     type: "website",
     locale: "en_US",
   },

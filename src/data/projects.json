@@ -1,0 +1,89 @@
+[
+  {
+    "id": "internal-tools",
+    "title": "From scripts to a simpler workflow.",
+    "category": "Internal web tools",
+    "year": "2025",
+    "description": "A side project during my ttb spark internship: turning a workflow that relied on running Python scripts into a web-based tool for the team.",
+    "contribution": "Helped move script-driven tasks into a web UI, alongside contributions to REST APIs, activity logs, and Auto Loan Car APIs for the Tablet Onboarding Platform team.",
+    "tags": ["Web application", "Python workflows", "REST APIs"],
+    "images": [
+      {
+        "src": "/images/tools-preview.svg",
+        "alt": "Illustrative blue dashboard layout for the internal tools project; not an actual product screenshot",
+        "caption": "Dashboard · image template",
+        "isTemplate": true
+      },
+      {
+        "src": "/images/workflow-preview.svg",
+        "alt": "Illustrative workflow diagram from script to web interface; not an actual product screenshot",
+        "caption": "Workflow · image template",
+        "isTemplate": true
+      }
+    ],
+    "links": [
+      {
+        "label": "Related experience",
+        "href": "/experiences#ttb-spark"
+      }
+    ]
+  },
+  {
+    "id": "starter-pack",
+    "title": "A place to connect, in real time.",
+    "category": "IT Starter Pack",
+    "year": "2024",
+    "description": "A web starter pack and event landing page with a real-time chat board, built for the IT Starter Pack event at KMUTT.",
+    "contribution": "Developed the landing page and Socket.io chat board, and supported implementation, setup, and technical coordination as part of the event team.",
+    "tags": ["TypeScript", "Socket.io", "Real-time web"],
+    "images": [
+      {
+        "src": "/images/community-preview.svg",
+        "alt": "Illustrative event landing page template, not a screenshot of IT Starter Pack",
+        "caption": "Landing page · image template",
+        "isTemplate": true
+      },
+      {
+        "src": "/images/chat-preview.svg",
+        "alt": "Illustrative real-time chat layout, not a screenshot of IT Starter Pack",
+        "caption": "Chat board · image template",
+        "isTemplate": true
+      }
+    ],
+    "links": [
+      {
+        "label": "Related experience",
+        "href": "/experiences#starter-pack"
+      }
+    ]
+  },
+  {
+    "id": "among-ducks",
+    "title": "Learning to build, one duck at a time.",
+    "category": "Among Ducks",
+    "year": "2023",
+    "description": "A 2D game built with Phaser 3 and Node.js to teach game development during SIT Hello World Goose at KMUTT.",
+    "contribution": "Contributed maps, gameplay logic, animation, and optimization. Led sessions on Phaser basics, game logic, map and object design, and performance.",
+    "tags": ["Phaser 3", "Node.js", "Game development"],
+    "images": [
+      {
+        "src": "/images/game-preview.svg",
+        "alt": "Illustrative pixel-art game map template, not an actual Among Ducks screenshot",
+        "caption": "Game world · image template",
+        "isTemplate": true
+      },
+      {
+        "src": "/images/workflow-preview.svg",
+        "alt": "Illustrative development workflow template; replace with an Among Ducks workshop image",
+        "caption": "Workshop · image template",
+        "isTemplate": true
+      }
+    ],
+    "links": [
+      {
+        "label": "Related experience",
+        "href": "/experiences#hello-world"
+      }
+    ]
+  }
+]

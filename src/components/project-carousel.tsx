@@ -16,7 +16,8 @@ export function ProjectCarousel({
   const id = useId();
   if (!images.length)
     return <div className="empty-media">Project images coming soon</div>;
-  const current = images[index];
+  const activeIndex = index % images.length;
+  const current = images[activeIndex];
   const move = (direction: number) =>
     setIndex((value) => (value + direction + images.length) % images.length);
   return (
@@ -33,13 +34,15 @@ export function ProjectCarousel({
           height={700}
           sizes="(max-width: 760px) 100vw, 50vw"
         />
-        <span className="image-label">ILLUSTRATIVE PREVIEW</span>
+        {current.isTemplate && (
+          <span className="image-label">ILLUSTRATIVE PREVIEW</span>
+        )}
       </div>
       <div className="carousel-toolbar">
         <p aria-live="polite" aria-atomic="true">
           {current.caption}
           <span className="sr-only">
-            , image {index + 1} of {images.length}
+            , image {activeIndex + 1} of {images.length}
           </span>
         </p>
         <div className="carousel-controls">
@@ -52,7 +55,7 @@ export function ProjectCarousel({
             <Arrow className="arrow-back" />
           </button>
           <span aria-hidden="true">
-            {String(index + 1).padStart(2, "0")}{" "}
+            {String(activeIndex + 1).padStart(2, "0")}{" "}
             <span className="muted">
               / {String(images.length).padStart(2, "0")}
             </span>

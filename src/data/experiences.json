@@ -1,0 +1,73 @@
+[
+  {
+    "id": "ttb-bank",
+    "company": "ttb bank",
+    "mark": "ttb",
+    "role": "Software Engineer",
+    "period": "Sep 2026 — Present",
+    "type": "Internship",
+    "location": "Bangkok · On-site",
+    "current": true,
+    "description": "Currently a Software Engineer intern at ttb bank in Bangkok.",
+    "highlights": [],
+    "tags": [],
+    "previewCompany": "ttb bank",
+    "previewPeriod": "2026 — Now",
+    "markStyle": "bank",
+    "previewRole": "Software Engineer Intern"
+  },
+  {
+    "id": "ttb-spark",
+    "company": "ttb spark",
+    "mark": "ttb",
+    "role": "Software Engineer",
+    "period": "Jan 2025 — Jul 2025",
+    "type": "Internship",
+    "location": "Bangkok · Hybrid",
+    "description": "Contributed to the TOP (Tablet Onboarding Platform) team, supporting backend services and tools that solve day-to-day team needs.",
+    "highlights": [
+      "Supported implementation of REST APIs, activity logs, and Auto Loan Car APIs.",
+      "Worked on a side project that moved Python script workflows into a web UI."
+    ],
+    "tags": ["REST APIs", "Microservices", "Agile", "Internal tools"],
+    "previewCompany": "ttb spark",
+    "previewPeriod": "2025",
+    "markStyle": "bank"
+  },
+  {
+    "id": "starter-pack",
+    "company": "King Mongkut’s University of Technology Thonburi",
+    "mark": "K",
+    "role": "Web Developer & Technical Team",
+    "period": "Jul 2024 — Aug 2024",
+    "type": "IT Starter Pack 2024 · Seasonal",
+    "location": "Bangkok · On-site",
+    "description": "Built for a community event, with real-time interaction at its heart.",
+    "highlights": [
+      "Developed a starter landing page with a chat board using Socket.io.",
+      "Supported implementation, setup, and technical coordination for the event."
+    ],
+    "tags": ["TypeScript", "Socket.io", "Teamwork"],
+    "previewCompany": "KMUTT · IT Starter Pack",
+    "previewPeriod": "2024",
+    "markStyle": "university"
+  },
+  {
+    "id": "hello-world",
+    "company": "King Mongkut’s University of Technology Thonburi",
+    "mark": "K",
+    "role": "Game Development Speaker",
+    "period": "Nov 2023 — Dec 2023",
+    "type": "SIT Hello World Goose 2023 · Seasonal",
+    "location": "Bangkok · On-site",
+    "description": "Helped make game development approachable through Among Ducks, a hands-on 2D game project.",
+    "highlights": [
+      "Contributed map implementation, gameplay logic, animation, and optimization using Phaser 3 and Node.js.",
+      "Led sessions on Phaser functions, game logic, map and object design, and performance optimization."
+    ],
+    "tags": ["Phaser 3", "Node.js", "Teaching", "Game development"],
+    "previewCompany": "KMUTT · SIT Hello World Goose",
+    "previewPeriod": "2023",
+    "markStyle": "university"
+  }
+]

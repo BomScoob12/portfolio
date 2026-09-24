@@ -1,7 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Arrow, LinkedInIcon } from "@/components/icons";
-import { experiences, profile, projects } from "@/data/portfolio";
+import {
+  currentExperience,
+  experiences,
+  profile,
+  projects,
+} from "@/data/portfolio";
+import site from "@/data/site.json";
+import { TextLines } from "@/components/text-lines";
+import { Fragment } from "react";
 
 export default function Home() {
   return (
@@ -9,25 +17,24 @@ export default function Home() {
       <section className="container hero">
         <div className="hero-copy">
           <p className="eyebrow hero-eyebrow">
-            <span className="status-dot" /> SOFTWARE ENGINEER · BANGKOK,
-            THAILAND
+            <span className="status-dot" /> {profile.role.toUpperCase()} ·{" "}
+            {profile.location.toUpperCase()}
           </p>
           <h1>
-            Hi, I’m{" "}
+            {site.home.greeting}{" "}
             <span className="name-accent">
-              Bom<span className="blue-period">.</span>
+              {profile.nickname}
+              <span className="blue-period">.</span>
             </span>
-            <span className="full-name">Sarawit Kraukham</span>
+            <span className="full-name">{profile.name}</span>
           </h1>
           <p className="hero-statement">
-            Thoughtful code.
-            <br />
-            Useful experiences.
+            <TextLines lines={profile.statement} />
           </p>
           <p className="hero-summary">{profile.summary}</p>
           <div className="hero-actions">
             <Link href="/projects" className="button button-primary">
-              Explore my work <Arrow />
+              {site.home.projectsAction} <Arrow />
             </Link>
             <a
               href={profile.linkedin}
@@ -39,14 +46,16 @@ export default function Home() {
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
           </div>
-          <div className="current-role">
-            <span className="tiny-label">CURRENTLY AT</span>
-            <span className="ttb-inline">
-              ttb<span> bank</span>
-            </span>
-            <span className="current-separator" />
-            <span>Software Engineer Intern</span>
-          </div>
+          {currentExperience && (
+            <div className="current-role">
+              <span className="tiny-label">CURRENTLY AT</span>
+              <span className="ttb-inline">{currentExperience.company}</span>
+              <span className="current-separator" />
+              <span>
+                {currentExperience.previewRole ?? currentExperience.role}
+              </span>
+            </div>
+          )}
         </div>
         <div className="portrait-composition">
           <span className="portrait-corner corner-top" />
@@ -54,7 +63,7 @@ export default function Home() {
             {profile.portrait ? (
               <Image
                 src={profile.portrait}
-                alt="Sarawit Kraukham"
+                alt={profile.name}
                 fill
                 sizes="(max-width: 760px) 90vw, 42vw"
                 priority
@@ -64,7 +73,7 @@ export default function Home() {
               <>
                 <div className="portrait-grid" />
                 <span className="portrait-watermark" aria-hidden="true">
-                  B.
+                  {profile.nickname.charAt(0)}.
                 </span>
                 <svg
                   className="portrait-silhouette"
@@ -99,44 +108,45 @@ export default function Home() {
               </>
             )}
             <div className="portrait-caption">
-              <span>THE PERSON BEHIND THE CODE</span>
-              <span>01 / ABOUT ME</span>
+              <span>{site.home.portraitCaption}</span>
+              <span>{site.home.portraitSection}</span>
             </div>
           </div>
           <div className="floating-code">
             <span className="code-icon">&lt;/&gt;</span>
             <div>
-              Ideas into implementation
-              <span>Always learning. Always building.</span>
+              {site.home.portraitNote}
+              <span>{site.home.portraitSubnote}</span>
             </div>
           </div>
           <span className="portrait-corner corner-bottom" />
-          <span className="portrait-coordinate">
-            13.7563° N &nbsp; 100.5018° E
-          </span>
+          <span className="portrait-coordinate">{profile.coordinates}</span>
         </div>
       </section>
       <div className="container focus-strip">
-        <span className="tiny-label">MY WORK SPANS</span>
-        <span>Backend & APIs</span>
-        <span className="strip-star">✳</span>
-        <span>Web Development</span>
-        <span className="strip-star">✳</span>
-        <span>Creative Coding</span>
-        <span className="strip-star">✳</span>
-        <span>Knowledge Sharing</span>
+        <span className="tiny-label">{site.home.focusLabel}</span>
+        {profile.focusAreas.map((area, index) => (
+          <Fragment key={area}>
+            {index > 0 && (
+              <span className="strip-star" aria-hidden="true">
+                ✳
+              </span>
+            )}
+            <span>{area}</span>
+          </Fragment>
+        ))}
       </div>
       <section className="container section-block">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">01 / SELECTED WORK</p>
+            <p className="eyebrow">{site.home.projectsLabel}</p>
             <h2>
-              Some things I’ve helped build
+              {site.home.projectsHeading}
               <span className="blue-period">.</span>
             </h2>
           </div>
           <Link className="text-link" href="/projects">
-            All projects <Arrow />
+            {site.home.projectsLink} <Arrow />
           </Link>
         </div>
         <div className="project-grid">
@@ -147,14 +157,20 @@ export default function Home() {
               key={project.id}
             >
               <div className={`card-image card-image-${index}`}>
-                <Image
-                  src={project.images[0].src}
-                  alt={project.images[0].alt}
-                  width={1000}
-                  height={700}
-                  sizes="(max-width: 760px) 100vw, 33vw"
-                />
-                <span className="image-label">IMAGE TEMPLATE</span>
+                {project.images[0] ? (
+                  <Image
+                    src={project.images[0].src}
+                    alt={project.images[0].alt}
+                    width={1000}
+                    height={700}
+                    sizes="(max-width: 760px) 100vw, 33vw"
+                  />
+                ) : (
+                  <div className="empty-media">Project images coming soon</div>
+                )}
+                {project.images[0]?.isTemplate && (
+                  <span className="image-label">IMAGE TEMPLATE</span>
+                )}
                 <span className="card-arrow">
                   <Arrow diagonal />
                 </span>
@@ -175,18 +191,15 @@ export default function Home() {
       </section>
       <section className="container section-block home-experience">
         <div>
-          <p className="eyebrow">02 / THE JOURNEY SO FAR</p>
+          <p className="eyebrow">{site.home.experienceLabel}</p>
           <h2>
-            Built through
-            <br />
-            real experience.
+            <TextLines lines={site.home.experienceHeading} />
           </h2>
           <p className="section-description">
-            From teaching game development to contributing to banking platforms.
-            Each chapter adds a new perspective.
+            {site.home.experienceDescription}
           </p>
           <Link className="text-link" href="/experiences">
-            Explore my experience <Arrow />
+            {site.home.experienceLink} <Arrow />
           </Link>
         </div>
         <div className="experience-preview">
@@ -197,22 +210,16 @@ export default function Home() {
               key={exp.id}
             >
               <span
-                className={`company-mark ${exp.mark === "K" ? "kmutt" : ""}`}
+                className={`company-mark ${exp.markStyle === "university" ? "kmutt" : ""}`}
               >
                 {exp.mark}
               </span>
               <div>
                 <h3>{exp.role}</h3>
-                <p>
-                  {exp.mark === "K" ? "KMUTT · IT Starter Pack" : exp.company}
-                </p>
+                <p>{exp.previewCompany}</p>
               </div>
               <span className="preview-date">
-                {exp.current
-                  ? "2026 — Now"
-                  : exp.period.includes("2025")
-                    ? "2025"
-                    : "2024"}
+                {exp.previewPeriod}
                 <Arrow diagonal />
               </span>
             </Link>

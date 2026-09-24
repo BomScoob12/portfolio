@@ -1,0 +1,63 @@
+{
+  "release": {
+    "label": "Beta",
+    "description": "Draft portfolio · Work in progress"
+  },
+  "navigation": {
+    "links": [
+      { "href": "/", "label": "Home" },
+      { "href": "/projects", "label": "Projects" },
+      { "href": "/experiences", "label": "Experiences" }
+    ],
+    "contact": "Let’s connect"
+  },
+  "home": {
+    "greeting": "Hi, I’m",
+    "projectsAction": "Explore my work",
+    "portraitCaption": "THE PERSON BEHIND THE CODE",
+    "portraitSection": "01 / ABOUT ME",
+    "portraitNote": "Ideas into implementation",
+    "portraitSubnote": "Always learning. Always building.",
+    "focusLabel": "MY WORK SPANS",
+    "projectsLabel": "01 / SELECTED WORK",
+    "projectsHeading": "Some things I’ve helped build",
+    "projectsLink": "All projects",
+    "experienceLabel": "02 / THE JOURNEY SO FAR",
+    "experienceHeading": ["Built through", "real experience."],
+    "experienceDescription": "From teaching game development to contributing to banking platforms. Each chapter adds a new perspective.",
+    "experienceLink": "Explore my experience"
+  },
+  "projects": {
+    "eyebrow": "SELECTED WORK",
+    "title": "Ideas, made",
+    "accent": "real.",
+    "intro": [
+      "A selection of projects I’ve contributed to.",
+      "Different challenges. One curiosity for how things work."
+    ],
+    "contributionLabel": "MY CONTRIBUTION",
+    "templateNote": "Project visuals are illustrative templates. Original screenshots and public repository links will be added when available.",
+    "description": "Explore Sarawit’s contributions to internal web tools, real-time event experiences, and game development."
+  },
+  "experiences": {
+    "eyebrow": "EXPERIENCE / LEARNING BY DOING",
+    "title": "Every chapter.",
+    "accent": "A new perspective.",
+    "intro": [
+      "Building software, supporting teams, and sharing what I learn.",
+      "Here’s where that journey has taken me."
+    ],
+    "description": "Sarawit’s engineering journey: ttb bank, ttb spark, and web and game development events at KMUTT."
+  },
+  "footer": {
+    "eyebrow": "GOOD SOFTWARE STARTS WITH A CONVERSATION",
+    "title": "Let’s build something",
+    "accent": "meaningful.",
+    "contact": "Connect on LinkedIn",
+    "credit": "Made with care. Built with Next.js."
+  },
+  "seo": {
+    "description": "Meet Sarawit (Bom) Kraukham, a software engineer in Bangkok working on backend APIs, internal tools, and real-time web experiences.",
+    "socialDescription": "Backend APIs, thoughtful web experiences, and the work behind them."
+  }
+}

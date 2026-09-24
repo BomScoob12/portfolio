@@ -3,28 +3,38 @@ import Link from "next/link";
 import { Arrow } from "@/components/icons";
 import { ProjectCarousel } from "@/components/project-carousel";
 import { projects } from "@/data/portfolio";
+import site from "@/data/site.json";
+import { TextLines } from "@/components/text-lines";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description:
-    "Explore Sarawit’s contributions to internal web tools, real-time event experiences, and game development.",
+  description: site.projects.description,
 };
 
 export default function Projects() {
+  const years = projects.map((project) => project.year).sort();
+  const yearRange = years.length
+    ? `${years[0]} — ${years[years.length - 1]}`
+    : "";
   return (
     <div className="container">
       <header className="page-intro">
-        <p className="eyebrow">SELECTED WORK / 2023 — 2025</p>
+        <p className="eyebrow">
+          {site.projects.eyebrow}
+          {yearRange && ` / ${yearRange}`}
+        </p>
         <h1>
-          Ideas, made <span className="name-accent">real.</span>
+          {site.projects.title}{" "}
+          <span className="name-accent">{site.projects.accent}</span>
         </h1>
         <div className="intro-bottom">
           <p>
-            A selection of projects I’ve contributed to.
-            <br />
-            Different challenges. One curiosity for how things work.
+            <TextLines lines={site.projects.intro} />
           </p>
-          <span className="tiny-label">03 PROJECTS &nbsp; ↙</span>
+          <span className="tiny-label">
+            {String(projects.length).padStart(2, "0")}{" "}
+            {projects.length === 1 ? "PROJECT" : "PROJECTS"} &nbsp; ↙
+          </span>
         </div>
       </header>
       <div className="project-list">
@@ -36,14 +46,16 @@ export default function Projects() {
           >
             <div className="project-details">
               <p className="eyebrow">
-                <span className="project-number">0{index + 1}</span>{" "}
+                <span className="project-number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>{" "}
                 {project.category}{" "}
                 <span className="project-year">/ {project.year}</span>
               </p>
               <h2>{project.title}</h2>
               <p>{project.description}</p>
               <div className="contribution">
-                <h3>MY CONTRIBUTION</h3>
+                <h3>{site.projects.contributionLabel}</h3>
                 <p>{project.contribution}</p>
               </div>
               <div className="tags">
@@ -82,10 +94,9 @@ export default function Projects() {
           </article>
         ))}
       </div>
-      <p className="content-note">
-        Project visuals are illustrative templates. Original screenshots and
-        public repository links will be added when available.
-      </p>
+      {projects.some((project) =>
+        project.images.some((image) => image.isTemplate),
+      ) && <p className="content-note">{site.projects.templateNote}</p>}
     </div>
   );
 }

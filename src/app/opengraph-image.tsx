@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
-export const alt = "Sarawit Kraukham — Software Engineer";
+import profile from "@/data/profile.json";
+export const alt = `${profile.name} — ${profile.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function OpenGraphImage() {
@@ -17,16 +18,16 @@ export default function OpenGraphImage() {
       }}
     >
       <div style={{ fontSize: 25, color: "#86aeff", letterSpacing: 5 }}>
-        BOM / SOFTWARE ENGINEER
+        {`${profile.nickname.toUpperCase()} / ${profile.role.toUpperCase()}`}
       </div>
       <div style={{ fontSize: 83, marginTop: 36, fontWeight: 700 }}>
-        Sarawit Kraukham.
+        {`${profile.name}.`}
       </div>
       <div style={{ fontSize: 35, marginTop: 28, color: "#a4afc2" }}>
-        Thoughtful code. Useful experiences.
+        {profile.statement.join(" ")}
       </div>
       <div style={{ fontSize: 22, marginTop: 55, color: "#86aeff" }}>
-        Bangkok, Thailand
+        {profile.location}
       </div>
     </div>,
     { ...size },

@@ -1,28 +1,27 @@
 import type { Metadata } from "next";
 import { Arrow, LinkedInIcon } from "@/components/icons";
 import { experiences, profile } from "@/data/portfolio";
+import site from "@/data/site.json";
+import { TextLines } from "@/components/text-lines";
 
 export const metadata: Metadata = {
   title: "Experiences",
-  description:
-    "Sarawit’s engineering journey: ttb bank, ttb spark, and web and game development events at KMUTT.",
+  description: site.experiences.description,
 };
 
 export default function Experiences() {
   return (
     <div className="container">
       <header className="page-intro">
-        <p className="eyebrow">EXPERIENCE / LEARNING BY DOING</p>
+        <p className="eyebrow">{site.experiences.eyebrow}</p>
         <h1>
-          Every chapter.
+          {site.experiences.title}
           <br />
-          <span className="name-accent">A new perspective.</span>
+          <span className="name-accent">{site.experiences.accent}</span>
         </h1>
         <div className="intro-bottom">
           <p>
-            Building software, supporting teams, and sharing what I learn.
-            <br />
-            Here’s where that journey has taken me.
+            <TextLines lines={site.experiences.intro} />
           </p>
           <a
             className="text-link"
@@ -50,12 +49,14 @@ export default function Experiences() {
                   <span className="status-dot" /> Current role
                 </span>
               )}
-              <span className="timeline-index">0{index + 1}</span>
+              <span className="timeline-index">
+                {String(index + 1).padStart(2, "0")}
+              </span>
             </div>
             <div className="timeline-content">
               <div className="experience-heading">
                 <span
-                  className={`company-mark large ${exp.mark === "K" ? "kmutt" : ""}`}
+                  className={`company-mark large ${exp.markStyle === "university" ? "kmutt" : ""}`}
                 >
                   {exp.mark}
                 </span>
