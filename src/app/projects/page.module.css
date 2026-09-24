@@ -1,0 +1,130 @@
+.container {
+  composes: container from "../../styles/shared.module.css";
+}
+.srOnly {
+  composes: srOnly from "../../styles/shared.module.css";
+}
+.eyebrow {
+  composes: eyebrow from "../../styles/shared.module.css";
+}
+.tinyLabel {
+  composes: tinyLabel from "../../styles/shared.module.css";
+}
+.nameAccent {
+  composes: nameAccent from "../../styles/shared.module.css";
+}
+.textLink {
+  composes: textLink from "../../styles/shared.module.css";
+}
+.tags {
+  composes: tags from "../../styles/shared.module.css";
+}
+.pageIntro {
+  composes: pageIntro from "../../styles/shared.module.css";
+}
+.introBottom {
+  composes: introBottom from "../../styles/shared.module.css";
+}
+.projectRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 75px;
+  padding: 74px 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 30px;
+}
+.projectRow.reverse .projectDetails {
+  order: 2;
+}
+.projectRow.reverse > :last-child {
+  order: 1;
+}
+.projectDetails .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 1.1px;
+}
+.projectNumber {
+  color: #778ba8;
+  font-size: 12px;
+  margin-right: 4px;
+}
+.projectYear {
+  color: var(--muted);
+  margin-left: auto;
+}
+.projectDetails h2 {
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -1.3px;
+}
+.projectDetails > p:not(.eyebrow) {
+  color: var(--muted);
+  margin-top: 20px;
+  font-size: 13px;
+}
+.contribution {
+  margin-top: 24px;
+}
+.contribution h3 {
+  font-family: var(--body);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  color: #bccde3;
+}
+.contribution p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 9px;
+  line-height: 1.8;
+}
+.projectLinks {
+  display: flex;
+  gap: 18px;
+  margin-top: 22px;
+}
+.contentNote {
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+  padding: 27px 0 55px;
+}
+@media (max-width: 1050px) {
+  .projectRow {
+    gap: 40px;
+  }
+}
+@media (max-width: 760px) {
+  .projectRow {
+    grid-template-columns: 1fr;
+    padding-block: 43px;
+    gap: 28px;
+  }
+  .projectRow.reverse .projectDetails {
+    order: 0;
+  }
+  .projectRow.reverse > :last-child {
+    order: 0;
+  }
+  .projectDetails h2 {
+    font-size: 31px;
+  }
+  .projectDetails .eyebrow {
+    font-size: 8px;
+  }
+  .projectDetails > p:not(.eyebrow) {
+    font-size: 14px;
+  }
+  .contribution p {
+    font-size: 13px;
+  }
+  .contentNote {
+    font-size: 10px;
+    padding-bottom: 36px;
+  }
+}

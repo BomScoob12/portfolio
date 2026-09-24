@@ -1,32 +1,33 @@
+import styles from "./footer.module.css";
 import { profile } from "@/data/portfolio";
 import { Arrow, LinkedInIcon } from "./icons";
 import site from "@/data/site.json";
 
 export function Footer() {
   return (
-    <footer className="container">
-      <div className="contact-strip">
+    <footer className={styles.container}>
+      <div className={styles.contactStrip}>
         <div>
-          <span className="eyebrow">{site.footer.eyebrow}</span>
+          <span className={styles.eyebrow}>{site.footer.eyebrow}</span>
           <h2>
             {site.footer.title} <span>{site.footer.accent}</span>
           </h2>
         </div>
         <a
           href={profile.linkedin}
-          className="button button-outline"
+          className={`${styles.button} ${styles.buttonOutline}`}
           target="_blank"
           rel="noreferrer"
         >
           {site.footer.contact} <Arrow diagonal />
-          <span className="sr-only"> (opens in a new tab)</span>
+          <span className={styles.srOnly}> (opens in a new tab)</span>
         </a>
       </div>
-      <div className="footer-bottom">
+      <div className={styles.footerBottom}>
         <span>
           © {new Date().getFullYear()} {profile.name}
         </span>
-        <span className="footer-note">{site.footer.credit}</span>
+        <span className={styles.footerNote}>{site.footer.credit}</span>
         <a
           href={profile.linkedin}
           target="_blank"

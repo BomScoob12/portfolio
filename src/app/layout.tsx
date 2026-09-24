@@ -1,3 +1,4 @@
+import styles from "./layout.module.css";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Navigation } from "@/components/navigation";
@@ -53,7 +54,7 @@ export default function RootLayout({
       className={`${manrope.variable} ${dmSans.variable}`}
     >
       <body>
-        <a className="skip-link" href="#main">
+        <a className={styles.skipLink} href="#main">
           Skip to content
         </a>
         <Navigation />

@@ -1,3 +1,4 @@
+import styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { Arrow, LinkedInIcon } from "@/components/icons";
@@ -14,52 +15,57 @@ import { Fragment } from "react";
 export default function Home() {
   return (
     <>
-      <section className="container hero">
-        <div className="hero-copy">
-          <p className="eyebrow hero-eyebrow">
-            <span className="status-dot" /> {profile.role.toUpperCase()} ·{" "}
+      <section className={`${styles.container} ${styles.hero}`}>
+        <div>
+          <p className={`${styles.eyebrow} ${styles.heroEyebrow}`}>
+            <span className={styles.statusDot} /> {profile.role.toUpperCase()} ·{" "}
             {profile.location.toUpperCase()}
           </p>
           <h1>
             {site.home.greeting}{" "}
-            <span className="name-accent">
+            <span className={styles.nameAccent}>
               {profile.nickname}
-              <span className="blue-period">.</span>
+              <span className={styles.bluePeriod}>.</span>
             </span>
-            <span className="full-name">{profile.name}</span>
+            <span className={styles.fullName}>{profile.name}</span>
           </h1>
-          <p className="hero-statement">
+          <p className={styles.heroStatement}>
             <TextLines lines={profile.statement} />
           </p>
-          <p className="hero-summary">{profile.summary}</p>
-          <div className="hero-actions">
-            <Link href="/projects" className="button button-primary">
+          <p className={styles.heroSummary}>{profile.summary}</p>
+          <div className={styles.heroActions}>
+            <Link
+              href="/projects"
+              className={`${styles.button} ${styles.buttonPrimary}`}
+            >
               {site.home.projectsAction} <Arrow />
             </Link>
             <a
               href={profile.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="quiet-link"
+              className={styles.quietLink}
             >
               <LinkedInIcon /> LinkedIn <Arrow diagonal />
-              <span className="sr-only"> (opens in a new tab)</span>
+              <span className={styles.srOnly}> (opens in a new tab)</span>
             </a>
           </div>
           {currentExperience && (
-            <div className="current-role">
-              <span className="tiny-label">CURRENTLY AT</span>
-              <span className="ttb-inline">{currentExperience.company}</span>
-              <span className="current-separator" />
+            <div className={styles.currentRole}>
+              <span className={styles.tinyLabel}>CURRENTLY AT</span>
+              <span className={styles.ttbInline}>
+                {currentExperience.company}
+              </span>
+              <span className={styles.currentSeparator} />
               <span>
                 {currentExperience.previewRole ?? currentExperience.role}
               </span>
             </div>
           )}
         </div>
-        <div className="portrait-composition">
-          <span className="portrait-corner corner-top" />
-          <div className="portrait-frame">
+        <div className={styles.portraitComposition}>
+          <span className={`${styles.portraitCorner} ${styles.cornerTop}`} />
+          <div className={styles.portraitFrame}>
             {profile.portrait ? (
               <Image
                 src={profile.portrait}
@@ -67,16 +73,16 @@ export default function Home() {
                 fill
                 sizes="(max-width: 760px) 90vw, 42vw"
                 priority
-                className="real-portrait"
+                className={styles.realPortrait}
               />
             ) : (
               <>
-                <div className="portrait-grid" />
-                <span className="portrait-watermark" aria-hidden="true">
+                <div className={styles.portraitGrid} />
+                <span className={styles.portraitWatermark} aria-hidden="true">
                   {profile.nickname.charAt(0)}.
                 </span>
                 <svg
-                  className="portrait-silhouette"
+                  className={styles.portraitSilhouette}
                   viewBox="0 0 440 510"
                   aria-hidden="true"
                 >
@@ -102,32 +108,32 @@ export default function Home() {
                     fill="#153459"
                   />
                 </svg>
-                <span className="portrait-template-label">
+                <span className={styles.portraitTemplateLabel}>
                   PORTRAIT PLACEHOLDER
                 </span>
               </>
             )}
-            <div className="portrait-caption">
+            <div className={styles.portraitCaption}>
               <span>{site.home.portraitCaption}</span>
               <span>{site.home.portraitSection}</span>
             </div>
           </div>
-          <div className="floating-code">
-            <span className="code-icon">&lt;/&gt;</span>
+          <div className={styles.floatingCode}>
+            <span className={styles.codeIcon}>&lt;/&gt;</span>
             <div>
               {site.home.portraitNote}
               <span>{site.home.portraitSubnote}</span>
             </div>
           </div>
-          <span className="portrait-corner corner-bottom" />
+          <span className={`${styles.portraitCorner} ${styles.cornerBottom}`} />
         </div>
       </section>
-      <div className="container focus-strip">
-        <span className="tiny-label">{site.home.focusLabel}</span>
+      <div className={`${styles.container} ${styles.focusStrip}`}>
+        <span className={styles.tinyLabel}>{site.home.focusLabel}</span>
         {profile.focusAreas.map((area, index) => (
           <Fragment key={area}>
             {index > 0 && (
-              <span className="strip-star" aria-hidden="true">
+              <span className={styles.stripStar} aria-hidden="true">
                 ✳
               </span>
             )}
@@ -135,27 +141,27 @@ export default function Home() {
           </Fragment>
         ))}
       </div>
-      <section className="container section-block">
-        <div className="section-heading">
+      <section className={`${styles.container} ${styles.sectionBlock}`}>
+        <div className={styles.sectionHeading}>
           <div>
-            <p className="eyebrow">{site.home.projectsLabel}</p>
+            <p className={styles.eyebrow}>{site.home.projectsLabel}</p>
             <h2>
               {site.home.projectsHeading}
-              <span className="blue-period">.</span>
+              <span className={styles.bluePeriod}>.</span>
             </h2>
           </div>
-          <Link className="text-link" href="/projects">
+          <Link className={styles.textLink} href="/projects">
             {site.home.projectsLink} <Arrow />
           </Link>
         </div>
-        <div className="project-grid">
-          {projects.map((project, index) => (
+        <div className={styles.projectGrid}>
+          {projects.map((project) => (
             <Link
-              className="project-card"
+              className={styles.projectCard}
               href={`/projects#${project.id}`}
               key={project.id}
             >
-              <div className={`card-image card-image-${index}`}>
+              <div className={styles.cardImage}>
                 {project.images[0] ? (
                   <Image
                     src={project.images[0].src}
@@ -165,21 +171,23 @@ export default function Home() {
                     sizes="(max-width: 760px) 100vw, 33vw"
                   />
                 ) : (
-                  <div className="empty-media">Project images coming soon</div>
+                  <div className={styles.emptyMedia}>
+                    Project images coming soon
+                  </div>
                 )}
                 {project.images[0]?.isTemplate && (
-                  <span className="image-label">IMAGE TEMPLATE</span>
+                  <span className={styles.imageLabel}>IMAGE TEMPLATE</span>
                 )}
-                <span className="card-arrow">
+                <span className={styles.cardArrow}>
                   <Arrow diagonal />
                 </span>
               </div>
-              <div className="card-meta">
+              <div className={styles.cardMeta}>
                 <span>{project.category}</span>
                 <span>{project.year}</span>
               </div>
               <h3>{project.title}</h3>
-              <div className="tags">
+              <div className={styles.tags}>
                 {project.tags.slice(0, 2).map((tag) => (
                   <span key={tag}>{tag}</span>
                 ))}
@@ -188,28 +196,30 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="container section-block home-experience">
+      <section
+        className={`${styles.container} ${styles.sectionBlock} ${styles.homeExperience}`}
+      >
         <div>
-          <p className="eyebrow">{site.home.experienceLabel}</p>
+          <p className={styles.eyebrow}>{site.home.experienceLabel}</p>
           <h2>
             <TextLines lines={site.home.experienceHeading} />
           </h2>
-          <p className="section-description">
+          <p className={styles.sectionDescription}>
             {site.home.experienceDescription}
           </p>
-          <Link className="text-link" href="/experiences">
+          <Link className={styles.textLink} href="/experiences">
             {site.home.experienceLink} <Arrow />
           </Link>
         </div>
-        <div className="experience-preview">
+        <div>
           {experiences.slice(0, 3).map((exp) => (
             <Link
               href={`/experiences#${exp.id}`}
-              className="experience-preview-row"
+              className={styles.experiencePreviewRow}
               key={exp.id}
             >
               <span
-                className={`company-mark ${exp.markStyle === "university" ? "kmutt" : ""}`}
+                className={`${styles.companyMark} ${exp.markStyle === "university" ? styles.kmutt : ""}`}
               >
                 {exp.mark}
               </span>
@@ -217,7 +227,7 @@ export default function Home() {
                 <h3>{exp.role}</h3>
                 <p>{exp.previewCompany}</p>
               </div>
-              <span className="preview-date">
+              <span className={styles.previewDate}>
                 {exp.previewPeriod}
                 <Arrow diagonal />
               </span>

@@ -11,26 +11,26 @@ export function Navigation() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   return (
-    <header className="site-header">
-      <div className="container nav-inner">
-        <div className="brand-group">
+    <header className={styles.siteHeader}>
+      <div className={`${styles.container} ${styles.navInner}`}>
+        <div className={styles.brandGroup}>
           <Link
             href="/"
-            className="wordmark"
+            className={styles.wordmark}
             aria-label={`${profile.nickname} home`}
             onClick={() => setOpen(false)}
           >
             {profile.nickname.toLowerCase()}
             <span>.</span>
-            <span className="wordmark-slash">/</span>
+            <span className={styles.wordmarkSlash}>/</span>
           </Link>
-          <span className="beta-badge" title={site.release.description}>
+          <span className={styles.betaBadge} title={site.release.description}>
             {site.release.label}
-            <span className="sr-only"> — {site.release.description}</span>
+            <span className={styles.srOnly}> — {site.release.description}</span>
           </span>
         </div>
         <button
-          className="menu-toggle"
+          className={styles.menuToggle}
           aria-expanded={open}
           aria-controls="main-navigation"
           onClick={() => setOpen(!open)}
@@ -40,16 +40,14 @@ export function Navigation() {
         </button>
         <nav
           id="main-navigation"
-          className={open ? "navigation is-open" : "navigation"}
+          className={`${styles.navigation} ${open ? styles.isOpen : ""}`}
           aria-label="Main navigation"
         >
           {site.navigation.links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={
-                pathname === link.href ? "nav-link active" : "nav-link"
-              }
+              className={`${styles.navLink} ${pathname === link.href ? styles.active : ""}`}
               aria-current={pathname === link.href ? "page" : undefined}
               onClick={() => setOpen(false)}
             >
@@ -60,10 +58,13 @@ export function Navigation() {
             href={profile.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="nav-contact"
+            className={styles.navContact}
           >
             {site.navigation.contact} <Arrow diagonal />
-            <span className="sr-only"> on LinkedIn (opens in a new tab)</span>
+            <span className={styles.srOnly}>
+              {" "}
+              on LinkedIn (opens in a new tab)
+            </span>
           </a>
         </nav>
       </div>

@@ -1,0 +1,90 @@
+.container {
+  composes: container from "../styles/shared.module.css";
+}
+.srOnly {
+  composes: srOnly from "../styles/shared.module.css";
+}
+.eyebrow {
+  composes: eyebrow from "../styles/shared.module.css";
+}
+.button {
+  composes: button from "../styles/shared.module.css";
+}
+.buttonOutline {
+  composes: buttonOutline from "../styles/shared.module.css";
+}
+.contactStrip {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 53px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.contactStrip .eyebrow {
+  font-size: 8px;
+  letter-spacing: 1.6px;
+  display: block;
+  margin-bottom: 13px;
+}
+.contactStrip h2 {
+  font-size: 25px;
+  letter-spacing: -0.7px;
+}
+.contactStrip h2 span {
+  color: var(--blue);
+}
+.contactStrip .button {
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.footerBottom {
+  padding: 27px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 9px;
+  color: #90a1b9;
+}
+.footerBottom > a {
+  padding: 10px;
+}
+.footerNote {
+  margin-left: auto;
+  margin-right: 22px;
+}
+@media (max-width: 1050px) {
+  .contactStrip h2 {
+    font-size: 21px;
+  }
+}
+@media (max-width: 760px) {
+  .contactStrip {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-block: 36px;
+    gap: 24px;
+  }
+  .contactStrip h2 {
+    font-size: 25px;
+    line-height: 1.4;
+  }
+  .contactStrip .eyebrow {
+    font-size: 7px;
+  }
+  .footerBottom {
+    flex-wrap: wrap;
+    gap: 5px 15px;
+    padding-block: 22px;
+  }
+  .footerNote {
+    order: 3;
+    width: 100%;
+    margin: 0;
+  }
+  .footerBottom > a {
+    margin-left: auto;
+  }
+}

@@ -31,7 +31,8 @@ npm start
 - Replace the project image paths, alternative text, and captions in `projects.json` with real screenshots. The included SVGs are original illustrative templates, not product screenshots. Set `isTemplate` to `false` on real images to remove their template labels. An empty `images` array displays an image-coming-soon state.
 - Add confirmed GitHub or demo URLs to each project's `links` array. External links open in a new tab; missing URLs are not fabricated.
 - The current ttb bank role has no detailed responsibilities because only its title and dates were supplied.
-- Theme and responsive styles are in `src/app/globals.css`.
+- Theme variables and global defaults are in `src/app/globals.css`. Page and component styles live in adjacent `.module.css` files; reusable styles are in `src/styles/shared.module.css`.
+- Follow [the design guidelines](DESIGN_GUIDELINES.md) for colors, typography, spacing, responsive layouts, accessibility, and CSS Modules conventions.
 
 ## Pages
 
